@@ -1,0 +1,88 @@
+{
+  "name": "dsffkasdkasdk-adskasdmwdmmiag",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/dsffkasdkasdk-adskasdmwdmmiag/src",
+  "prefix": "dsffkasdkasdk-adskasdmwdmmiag",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/dsffkasdkasdk-adskasdmwdmmiag",
+        "index": "apps/dsffkasdkasdk-adskasdmwdmmiag/src/index.html",
+        "main": "apps/dsffkasdkasdk-adskasdmwdmmiag/src/main.ts",
+        "polyfills": "apps/dsffkasdkasdk-adskasdmwdmmiag/src/polyfills.ts",
+        "tsConfig": "apps/dsffkasdkasdk-adskasdmwdmmiag/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/dsffkasdkasdk-adskasdmwdmmiag/src/favicon.ico",
+          "apps/dsffkasdkasdk-adskasdmwdmmiag/src/assets"
+        ],
+        "styles": ["apps/dsffkasdkasdk-adskasdmwdmmiag/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/dsffkasdkasdk-adskasdmwdmmiag/src/environments/environment.ts",
+              "with": "apps/dsffkasdkasdk-adskasdmwdmmiag/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "dsffkasdkasdk-adskasdmwdmmiag:build:production"
+        },
+        "development": {
+          "buildTarget": "dsffkasdkasdk-adskasdmwdmmiag:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "dsffkasdkasdk-adskasdmwdmmiag:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/dsffkasdkasdk-adskasdmwdmmiag"],
+      "options": {
+        "jestConfig": "apps/dsffkasdkasdk-adskasdmwdmmiag/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
